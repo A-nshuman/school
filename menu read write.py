@@ -1,4 +1,5 @@
 import csv
+from prettytable import PrettyTable
 
 def write_emp():
     f = open("School/emp_det.csv", "w", newline='')
@@ -20,9 +21,10 @@ def write_emp():
 def disp_emps():
     f = open("School/emp_det.csv", "r")
     r_obj = csv.reader(f)
-    print("No.\t\tName\t\tAddress\t\tSalary")
+    tab = PrettyTable(["ID", "Name", "Address", "Salary"])
     for i in r_obj:
-        print(f"{i[0]}\t\t{i[1]}\t\t{i[2]}\t\t{i[3]}")
+        tab.add_row([f"{i[0]}", f"{i[1]}", f"{i[2]}", f"{i[3]}"])
+    print(tab)
     f.close()
 
 def app_emp():
