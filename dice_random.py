@@ -2,8 +2,14 @@ import random
 from time import sleep
 
 def roll_dice():
-    print("Dice Rolling ... ")
+    print("Dice Rolling", end='')
     sleep(0.5)
+    print(".", end='')
+    sleep(0.5)
+    print(".", end='')
+    sleep(0.5)
+    print(".")
+    sleep(1)
     num = random.randint(1,6)
     print(f"You got {num}")
 
