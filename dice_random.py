@@ -3,15 +3,12 @@ from time import sleep
 
 def roll_dice():
     print("Dice Rolling", end='')
+    for i in range(1,4):
+        sleep(0.5)
+        print(".", end="")
     sleep(0.5)
-    print(".", end='')
-    sleep(0.5)
-    print(".", end='')
-    sleep(0.5)
-    print(".")
-    sleep(1)
     num = random.randint(1,6)
-    print(f"You got {num}")
+    print(f"\nYou got {num}")
 
 while True:
     print("1. Roll Dice\n2. Exit")
