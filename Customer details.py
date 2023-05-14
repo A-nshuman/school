@@ -1,15 +1,18 @@
 import csv
 from prettytable import PrettyTable
+import datetime
 
 def write_cus():
     f = open("School/cus_det.csv", "w", newline='')
     emps = []
     while True:
         s_no = int(input("Enter customer ID : "))
-        date = input("Enter date [dd/mm/yyy] : ")
+        # date = input("Enter date [dd/mm/yyy] : ")
         name = input("Enter customer name : ")
         address = input('Enter customer address : ')
         bill = int(input("Enter customer bill : "))
+        d = datetime.datetime.now()
+        date = (f"{d.day}/{d.strftime('%b')}/{d.year}")
 
         emps.append([s_no, date, name, address, bill])
         ch = input("New Customer? [y/n] : ")
@@ -33,10 +36,12 @@ def add_cus():
     emps = []
     while True:
         s_no = int(input("Enter customer ID : "))
-        date = input("Enter date [dd/mm/yyy] : ")
+        # date = input("Enter date [dd/mm/yyy] : ")
         name = input("Enter customer name : ")
         address = input('Enter customer address : ')
         bill = int(input("Enter customer bill : "))
+        d = datetime.datetime.now()
+        date = (f"{d.day}/{d.strftime('%b')}/{d.year}")
 
         emps.append([s_no, date, name, address, bill])
         ch = input("New Customer? [y/n] : ")
