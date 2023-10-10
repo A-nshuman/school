@@ -1,6 +1,6 @@
 import mysql.connector as con
 
-cxn = con.connect(host = 'localhost', user = 'root', passwd = '123456789', database = 'school')
+cxn = con.connect(host = '', user = '', passwd = '', database = '')
 cur = cxn.cursor()
 
 while True:
