@@ -23,7 +23,7 @@ def insertion():
     print('Data inserted successfully!')
 
 def deletion():
-    roll = input("Enter roll number to delete : ")
+    roll = int(input("Enter roll number to delete : "))
     cur.execute(f"delete from stud where RollNo = {roll}")
     print("Record deleted from table")
 
@@ -31,8 +31,8 @@ def updation():
     roll = input("Type roll number of student to be updated : ")
     name, stream, marks, grade, clas = detail()
 
-    query = f"update stud set name = '{name}', stream = '{stream}', avg_marks = {marks}, grade = '{grade}', class = {clas} where RollNo = {roll}"
-    cur.execute(query)
+    cur.execute(f"update stud set name = '{name}', stream = '{stream}', avg_marks = {marks}, grade = '{grade}', class = {clas} where RollNo = {roll}")
+    cxn.commit()
     print("Record successfully updated")
 
 def display():
