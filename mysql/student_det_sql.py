@@ -1,18 +1,23 @@
 import mysql.connector as con
 from prettytable import PrettyTable
 
-cxn = con.connect(host = '', user = '', passwd = '', database = '')
+cxn = con.connect(host = 'localhost', user = 'root', passwd = '123456789', database = 'school')
 cur = cxn.cursor()
 
-def insertion():
-    roll = int(input("Enter roll number : "))
+def detail():
     name = input("Enter name : ")
     stream = input("Enter stream : ")
     marks = float(input("Enter marks : "))
     grade = input("Enter grade : ")
     clas = int(input("Enter class : "))
 
-    cur.execute("create table if not exist stud(RollNo int(4) primary key, name varchar(225), stream varchar(225), avg_marks int, grade varchar(225), class int(2)")
+    return name, stream, marks, grade, clas
+
+def insertion():
+    roll = int(input("Enter roll number : "))
+    name, stream, marks, grade, clas = detail()
+
+    cur.execute("CREATE TABLE IF NOT EXISTS stud (RollNo int(4) primary key, name varchar(225), stream varchar(225), avg_marks int, grade varchar(225), class int(2))")
     cur.execute("insert into stud(RollNo, name, stream, avg_marks, grade, class) values({},'{}','{}',{},'{}',{})".format(roll, name, stream, marks, grade, clas))
     cxn.commit()
     print('Data inserted successfully!')
@@ -24,11 +29,7 @@ def deletion():
 
 def updation():
     roll = input("Type roll number of student to be updated : ")
-    name = input("Enter name : ")
-    stream = input("Enter stream : ")
-    marks = float(input("Enter marks : "))
-    grade = input("Enter grade : ")
-    clas = int(input("Enter class : "))
+    name, stream, marks, grade, clas = detail()
 
     query = f"update stud set name = '{name}', stream = '{stream}', avg_marks = {marks}, grade = '{grade}', class = {clas} where RollNo = {roll}"
     cur.execute(query)
