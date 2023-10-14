@@ -12,6 +12,7 @@ def insertion():
     grade = input("Enter grade : ")
     clas = int(input("Enter class : "))
 
+    cur.execute("create table if not exist stud(RollNo int(4) primary key, name varchar(225), stream varchar(225), avg_marks int, grade varchar(225), class int(2)")
     cur.execute("insert into stud(RollNo, name, stream, avg_marks, grade, class) values({},'{}','{}',{},'{}',{})".format(roll, name, stream, marks, grade, clas))
     cxn.commit()
     print('Data inserted successfully!')
