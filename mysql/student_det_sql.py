@@ -1,4 +1,5 @@
 import mysql.connector as con
+from prettytable import PrettyTable
 
 cxn = con.connect(host = '', user = '', passwd = '', database = '')
 cur = cxn.cursor()
