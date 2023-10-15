@@ -1,7 +1,7 @@
 import mysql.connector as con
 from prettytable import PrettyTable
 
-cxn = con.connect(host = 'localhost', user = 'root', passwd = '123456789', database = 'school')
+cxn = con.connect(host = '', user = '', passwd = '', database = '')
 cur = cxn.cursor()
 
 def detail():
