@@ -6,4 +6,4 @@ alter table sinfo modify column name varchar(30);
 alter table sinfo add primary key (roll);
 desc sinfo;
 create table sinfo1(roll_no int(4) primary key, class int(2), foreign key (roll_no) references sinfo(roll));
-desc snifo1;
+desc sinfo1;
